@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body{
+            text-align: center;
+            font-family: Arial;
+        }
+
+        .card{
+            border: 1px solid goldenrod;
+            width: 250px;
+            margin: 10px auto;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🍕Cardápio digital!!🍔</h1>
+    <div id="cardapio"></div>
+    
+    <script>
+        let produtos = [
+            { 
+                nome: "🍔X-Burguer",
+               preco: 19.50,
+               categoria: "Lanche"
+
+             },
+              {
+                nome: "🍕Pizza de Calabresa",
+               preco: 120.00,
+               categoria: "Lanche"
+
+             },
+        ];
+
+        function listarprodutos(){
+            let cardapio = document.getElementById("cardapio");
+
+            cardapio.innerHTML = "";
+
+            for(let i = 0; i < produtos.length; i++){
+                cardapio.innerHTML += 
+                "<div class='card'>" +
+                    "<h2>" + produtos[i].nome + "</h2>" +
+                    "<p>" + produtos[i].preco + "</p>" +
+                    "<p>" + produtos[i].categoria + "</p>" +
+                    "</div>"
+             }
+            }
+
+            listarprodutos();
+        
+    </script>
+
+</body>
+</html>

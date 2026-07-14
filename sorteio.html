@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <style>
+        body{
+            text-align: center;
+        }
+
+        button{
+            background-color: goldenrod;
+            color: rgb(32, 42, 16);
+            border-radius: 8px;
+            cursor: pointer;
+            border: none;
+            height: 50px;
+            width: 300px;
+        }
+        
+
+        button:hover{ 
+            background-color: darkolivegreen;
+            color: darkgoldenrod;
+
+        }
+
+        #ultimoitem{
+            color: goldenrod;
+        }
+    </style>
+</head>
+<body>
+    <h1>🏆Sorteio da Salada de Fruta Premiada!!🪅</h1>
+    <button onclick="abrircaixa()">Abrir caixa</button>
+    <button onclick="mostrarinventario()">Mostrar itens</button>
+
+    <h2 id="ultimoitem"></h2>
+    <h2 id="colecao"></h2>
+
+    <script>
+        let itensPossiveis = [
+            "🍋Limão!!",
+            "🍏Maça-verde",
+            "🍑Pêssego",
+            "🥭Manga",
+            "🍉Melância",
+            "🥝Kiwi",
+            "🍍Abacaxi",
+            "🍓Morango"
+            
+        ]
+
+            // vetor que aramazena os itens obtidos pelo jogador
+            let inventario = []
+
+            function abrircaixa(){
+                //sorteia um número entre 0 e 7
+                let sorteado = Math.floor(Math.random() * itensPossiveis.length)
+
+                //pegar o item da posição sorteada
+                let item = itensPossiveis [sorteado];
+
+                //adiciona um item no inventário
+                inventario.push(item);
+
+                //mostrar o item na tela
+                document.getElementById("ultimoitem").innerHTML = "Você recebeu: " + item;
+
+            }
+
+                function mostrarinventario(){
+                    let lista = document.getElementById("colecao");
+
+                    //limpa a lista
+                    lista.innerHTML = "";
+
+                    //percorre o vetor inventario e mostra na telinha
+                    for(let i = 0; i < inventario.length; i++){
+                        lista.innerHTML +=
+                        lista.innerHTML += "<li>" + (i + 1) + "o item: " + inventario[i] + "</li>"
+                    }
+                }
+                
+
+    </script>
+
+</body>
+</html>
